@@ -1,7 +1,9 @@
 package cigo.app;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -44,12 +46,21 @@ public class CigoController {
 	}
 
 	@RequestMapping("/firstWeek")
-	public ModelAndView firstWeekOld() {
+	public ModelAndView firstWeek() {
 		ModelAndView mav = new ModelAndView("firstWeek");
-		mav.addObject("dependentList", anagDependentService.findDependentInCigo_FirstWeek());
+		mav.addObject("dependentList", anagDependentService.findDependentInCigo(IFileConstants.FIRST_WEEK_DEPENDENT_LIST));
 		return mav;
 	}
 
+	@RequestMapping("/firstWeekRecap")
+	public ModelAndView firstWeekRecap() {
+		ModelAndView mav = new ModelAndView("firstWeekRecap");
+		List<Dependent> depList = anagDependentService.findDependentInCigo(IFileConstants.FIRST_WEEK_DEPENDENT_LIST);
+		Map<String, List<Dependent>> result = depList.stream().collect(
+				Collectors.groupingBy(Dependent::getOfficeInfo,	Collectors.mapping(Function.identity(), Collectors.toList())));
+		mav.addObject("dependentList", anagDependentService.findDependentInCigo(IFileConstants.FIRST_WEEK_DEPENDENT_LIST));
+		return mav;
+	}
 
 	@RequestMapping("/firstWeekPaged")
 	public String listBooks(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {

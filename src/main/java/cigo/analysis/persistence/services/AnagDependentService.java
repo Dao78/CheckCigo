@@ -31,9 +31,9 @@ public class AnagDependentService implements IAnagDependentService {
     @Autowired
     IAnagDependentRepository repo;
     
-    public List<Dependent> findDependentInCigo_FirstWeek() {
+    public List<Dependent> findDependentInCigo(String inputFile) {
     	final List<AnagDependent_FileElement> anagDependentList = new AnagDependentParser().readFile(IFileConstants.ANAG_DEPENDENT_LIST);
-    	final List<CigoDependent_FileElement> cigoDependentList = new CigoDependentParser().readFile(IFileConstants.FIRST_WEEK_DEPENDENT_LIST);
+    	final List<CigoDependent_FileElement> cigoDependentList = new CigoDependentParser().readFile(inputFile);
     
     	return cigoDependentList.stream().map(d -> {
     		Dependent dep = new Dependent(d, myRepo.findBySurnameAndName(d.getSurname(),  d.getName()));
