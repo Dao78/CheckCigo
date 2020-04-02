@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01
+    Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Cigo Analysis</title>
+</head>
+
+<body>
+	<div align="center">
+		<table border="1" cellpadding="5">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Mansione</th>
+					<th>Uffici/Operativo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${dependentList.empty}">
+					<td colspan="2">No Books Available</td>
+				</tr>
+				<tr th:each="dependent, iStat : ${dependentPage.content}"
+					th:style="${iStat.odd}? 'font-weight: bold;'"
+					th:alt-title="${iStat.even}? 'even' : 'odd'">
+					<td><span th:text="${dependent.id}"> Id </span></td>
+					<td><span th:text="${dependent.surName}"> Surname </span></td>
+					<td><span th:text="${dependent.name}"> Name </span></td>
+				</tr>
+			</tbody>
+		</table>
+		<div th:if="${dependentPage.totalPages > 0}" class="pagination"
+			th:each="pageNumber : ${pageNumbers}">
+			<a th:href="@{/firstWeekPaged(size=${dependentPage.size}, page=${pageNumber})}"
+				th:text=${pageNumber}
+				th:class="${pageNumber==dependentPage.number + 1} ? active"></a>
+		</div>
+	</div>
+</body>
+</html>

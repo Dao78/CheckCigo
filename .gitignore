@@ -1,0 +1,6 @@
+.project
+.classpath
+target/
+.idea/
+.settings/org.eclipse.core.resources.prefs
+.settings/
