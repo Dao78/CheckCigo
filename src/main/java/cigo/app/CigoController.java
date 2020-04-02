@@ -58,8 +58,8 @@ public class CigoController {
 		List<Dependent> depList = anagDependentService.findDependentInCigo(IFileConstants.FIRST_WEEK_DEPENDENT_LIST);
 		Map<String, List<Dependent>> result = depList.stream().collect(
 				Collectors.groupingBy(Dependent::getOfficeInfo,	Collectors.mapping(Function.identity(), Collectors.toList())));
-		mav.addObject("dependentList_Uffici",    result.get("UFFICI"));
-		mav.addObject("dependentList_Operativo", result.get("OPERATIVO"));
+		mav.addObject("dependentListUffici",    result.get("UFFICI"));
+		mav.addObject("dependentListOperativo",    result.get("OPERATIVO"));
 		return mav;
 	}
 

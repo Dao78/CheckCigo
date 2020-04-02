@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01
+    Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="../static/css/main.css" th:href="@{/css/main.css}"
+	rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Cigo Analysis</title>
+
+</head>
+
+<body>
+	<div align="center">
+		<table border="1" cellpadding="5" class="css-serial">
+			<thead>
+				<tr>
+					<th colspan="4">Piazzale</th>
+				</tr>
+				<tr>
+					<th>#</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Mansione</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${dependentListOperativo.empty}">
+					<td colspan="2">No Dependents Available</td>
+				</tr>
+				<tr th:each="dependent : ${dependentListOperativo}">
+					<td></td>
+					<td><span th:text="${dependent.surname}"> Cognome </span></td>
+					<td><span th:text="${dependent.name}"> Nome </span></td>
+					<td><span th:text="${dependent.skill}"> Mansione </span></td>
+				</tr>
+				<tr>
+				<td></td>
+					<td colspan="2">Totale</td>
+					<td><span th:text="${dependentListOperativo.size()}"> Size</span></td>
+					</tr>
+			</tbody>
+		</table>
+			<table border="1" cellpadding="5" class="css-serial">
+			<thead>
+				<tr>
+					<th colspan="4">Uffici</th>
+				</tr>
+				<tr>
+					<th>#</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Mansione</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${dependentListUffici.empty}">
+					<td colspan="2">No Dependents Available</td>
+				</tr>
+				<tr th:each="dependent : ${dependentListUffici}">
+					<td></td>
+					<td><span th:text="${dependent.surname}"> Cognome </span></td>
+					<td><span th:text="${dependent.name}"> Nome </span></td>
+					<td><span th:text="${dependent.skill}"> Mansione </span></td>
+				</tr>
+				<tr>
+				<td></td>
+					<td colspan="2">Totale</td>
+					<td><span th:text="${dependentListUffici.size()}"> Size</span></td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
