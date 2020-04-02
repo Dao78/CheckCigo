@@ -23,7 +23,7 @@ import cigo.analysis.persistence.AnagDependent;
 import cigo.analysis.persistence.services.IAnagDependentService;
 
 @RestController
-public class CustomerController {
+public class CigoController {
 
 	@Autowired
 	private IAnagDependentService anagDependentService;
@@ -40,8 +40,7 @@ public class CustomerController {
 	//@RequestMapping("/")
 	@GetMapping("/")
 	public ModelAndView home() {
-		ModelAndView mav = new ModelAndView("index");
-		return mav;
+		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/firstWeek")
