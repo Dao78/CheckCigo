@@ -8,7 +8,9 @@
 
 <body>
 	<div align="center">
-	 <h2>  Prima settimana <a th:href="@{firstWeek}">Lista</a> <a th:href="@{firstWeekRecap}">Recap</a></h2>
+	   <h2>Prima settimana<a th:href="@{showWeek(weekFile='PrimaSettimana')}">Lista</a> <a th:href="@{recapWeek(weekFile='PrimaSettimana')}">Recap</a></h2>
+	   <h2>Seconda settimana<a th:href="@{showWeek(weekFile='SecondaSettimana')}">Lista</a> <a th:href="@{recapWeek(weekFile='SecondaSettimana')}">Recap</a></h2>
+	   <h2><a th:href="@{ranking}">Classifica</a></h2>
 	</div>
 </body>
 </html>

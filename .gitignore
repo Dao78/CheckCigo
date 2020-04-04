@@ -7,3 +7,4 @@ target/
 src/main/resources/dependentList/Anagrafica.txt
 src/main/resources/application.properties
 src/main/resources/dependentList/ListaPrimaSettimana.txt
+src/main/resources/dependentList/

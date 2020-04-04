@@ -13,8 +13,11 @@ public class Dependent extends AbstractDependent_FileElement {
 	private Long   id;
 	private String skill;
 	private String typeTeam;
-	
+
 	private String officeInfo;
+
+	private Integer weekCounter = 0;
+
 
 	public Dependent(CigoDependent_FileElement d, Tuple dbInfo) {
 		name     = d.getName();
@@ -25,7 +28,12 @@ public class Dependent extends AbstractDependent_FileElement {
 		typeTeam = dbInfo.get("typeTeam", String.class);
 	}
 
-
+	public Dependent(AnagDependent_FileElement d) {
+		name     = d.getName();
+		surname  = d.getSurname();
+		officeInfo = d.getUffici_piazzale();
+		weekCounter = d.getWeekCounter();
+	}
 
 	public void setAnagraficAdditionalData(AnagDependent_FileElement anagDepFileElement) {
 		if (anagDepFileElement == null) return;

@@ -1,17 +1,22 @@
 package cigo.analysis.fileutilities.parsers;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import cigo.analysis.fileutilities.parsers.element.AbstractDependent_FileElement;
+import cigo.app.IFileConstants;
 import cigo.utilities.StringUtilities;
 
 public interface IDependentFileParser<T extends AbstractDependent_FileElement> {
@@ -40,5 +45,11 @@ public interface IDependentFileParser<T extends AbstractDependent_FileElement> {
 			e.printStackTrace();
 		}
 		return dependentList;
+	}
+	
+	public static List<String> getAllCigoFiles() {
+		URL resourceFolder = IDependentFileParser.class.getClassLoader().getResource(IFileConstants.FILE_FOLDER);
+		String path = resourceFolder.getPath();
+		return Arrays.asList(new File(path).listFiles()).stream().filter(f -> f.getName().startsWith(IFileConstants.FILEPREFIX)).map(File::getName).collect(Collectors.toList());
 	}
 }

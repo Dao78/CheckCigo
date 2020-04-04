@@ -9,6 +9,7 @@ import cigo.analysis.persistence.AnagDependent;
 import cigo.app.Dependent;
 
 public interface IAnagDependentService {
-	  public List<Dependent> findDependentInCigo(String inputFile);
-	  public Page<AnagDependent> findPaginated(Pageable pageable);
+	public List<Dependent> findDependentInCigo(String inputFile);
+	public Page<AnagDependent> findPaginated(Pageable pageable);
+	List<Dependent> findRanking();
 }
