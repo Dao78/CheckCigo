@@ -14,6 +14,40 @@
 		<center>Classifica</center>
 	</h1>
 	<div align="center">
+		<table border="1" cellpadding="5"  class="blueTable">
+			<thead>
+				<tr>
+					<th><center>Gruppo</center></th>
+					<th><center>Totale in cigo</center></th>
+					<th><center>Perc sul totale</center></th>
+					<th><center>Totale indenni</center></th>
+					<th><center>Perc indenni su<br>tot gruppo</center></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Uffici</td>
+					<td><span th:text="${totUfficiInCigo}"></span>/<span th:text="${totAnagUffici}"></span></td>
+					<td><span th:text="${percUfficiInCigo}"></span></td>
+					<td><span th:text="${totAnagUfficiSalvi}"></span>/<span th:text="${totAnagUffici}"></span></td>
+					<td><span th:text="${percUfficiSalvi}"></span></td>
+				</tr>
+				<tr>
+					<td>Operativo</td>
+					<td><span th:text="${totOperativoInCigo}"></span>/<span	th:text="${totAnagOperativo}"></span></td>
+					<td><span th:text="${percOperativoInCigo}"></span></td>
+					<td><span th:text="${totAnagOperativoSalvi}"></span>/<span th:text="${totAnagOperativo}"></span></td>
+					<td><span th:text="${percOperativoSalvi}"></span></td>
+				</tr>
+				<tr>
+					<td>Totale</td>
+					<td colspan="2"><span
+						th:text="${totUfficiInCigo} + ${totOperativoInCigo}"></span>/<span th:text="${totAnagUffici} + ${totAnagOperativo}"></span></td></td>
+						<td colspan="2"><span
+						th:text="${totAnagUfficiSalvi} + ${totAnagOperativoSalvi}"></span>/<span th:text="${totAnagUffici} + ${totAnagOperativo}"></span></td></td>
+				</tr>
+			</tbody>
+		</table>
 		<table border="1" cellpadding="5" class="css-serial">
 			<thead>
 				<tr>

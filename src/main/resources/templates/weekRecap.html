@@ -11,64 +11,89 @@
 
 <body>
 	<div align="center">
-		<table border="1" cellpadding="5" class="css-serial">
+		<table border="1" cellpadding="5">
 			<thead>
 				<tr>
-					<th colspan="4">Piazzale</th>
-				</tr>
-				<tr>
-					<th>#</th>
-					<th>Cognome</th>
-					<th>Nome</th>
-					<th>Mansione</th>
+					<th colspan="4">Totale</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${dependentListOperativo.empty}">
-					<td colspan="2">No Dependents Available</td>
-				</tr>
-				<tr th:each="dependent : ${dependentListOperativo}">
-					<td></td>
-					<td><span th:text="${dependent.surname}"> Cognome </span></td>
-					<td><span th:text="${dependent.name}"> Nome </span></td>
-					<td><span th:text="${dependent.skill}"> Mansione </span></td>
+				<tr>
+					<td>Uffici</td>
+					<td><span th:text="${totUfficiInCigo}"></span></td>
+					<td><span th:text="${percUfficiInCigo}"> Nome </span></td>
 				</tr>
 				<tr>
-				<td></td>
-					<td colspan="2">Totale</td>
-					<td><span th:text="${dependentListOperativo.size()}"> Size</span></td>
-					</tr>
+					<td>Operativo</td>
+					<td><span th:text="${totOperativoInCigo}"></span></td>
+					<td><span th:text="${percOperativoInCigo}"> Nome </span></td>
+				</tr>
+				<tr>
+					<td>Totale</td>
+					<td colspan="2"><span th:text="${totUfficiInCigo} + ${totOperativoInCigo}"></span></td>
+				</tr>
 			</tbody>
 		</table>
 			<table border="1" cellpadding="5" class="css-serial">
-			<thead>
-				<tr>
-					<th colspan="4">Uffici</th>
-				</tr>
-				<tr>
-					<th>#</th>
-					<th>Cognome</th>
-					<th>Nome</th>
-					<th>Mansione</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:if="${dependentListUffici.empty}">
-					<td colspan="2">No Dependents Available</td>
-				</tr>
-				<tr th:each="dependent : ${dependentListUffici}">
-					<td></td>
-					<td><span th:text="${dependent.surname}"> Cognome </span></td>
-					<td><span th:text="${dependent.name}"> Nome </span></td>
-					<td><span th:text="${dependent.skill}"> Mansione </span></td>
-				</tr>
-				<tr>
-				<td></td>
-					<td colspan="2">Totale</td>
-					<td><span th:text="${dependentListUffici.size()}"> Size</span></td>
+				<thead>
+					<tr>
+						<th colspan="4">Piazzale</th>
 					</tr>
-			</tbody>
-		</table>
-	</div>
+					<tr>
+						<th>#</th>
+						<th>Cognome</th>
+						<th>Nome</th>
+						<th>Mansione</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${dependentListOperativo.empty}">
+						<td colspan="2">No Dependents Available</td>
+					</tr>
+					<tr th:each="dependent : ${dependentListOperativo}">
+						<td></td>
+						<td><span th:text="${dependent.surname}"> Cognome </span></td>
+						<td><span th:text="${dependent.name}"> Nome </span></td>
+						<td><span th:text="${dependent.skill}"> Mansione </span></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">Totale</td>
+						<td><span th:text="${dependentListOperativo.size()}">
+								Size</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="1" cellpadding="5" class="css-serial">
+				<thead>
+					<tr>
+						<th colspan="4">Uffici</th>
+					</tr>
+					<tr>
+						<th>#</th>
+						<th>Cognome</th>
+						<th>Nome</th>
+						<th>Mansione</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${dependentListUffici.empty}">
+						<td colspan="2">No Dependents Available</td>
+					</tr>
+					<tr th:each="dependent : ${dependentListUffici}">
+						<td></td>
+						<td><span th:text="${dependent.surname}"> Cognome </span></td>
+						<td><span th:text="${dependent.name}"> Nome </span></td>
+						<td><span th:text="${dependent.skill}"> Mansione </span></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">Totale</td>
+						<td><span th:text="${dependentListUffici.size()}">
+								Size</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 </body>
 </html>
