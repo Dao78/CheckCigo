@@ -16,7 +16,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>5.1.5.RELEASE</spring.version>
-		<spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+		<spring-boot.version>2.5.12</spring-boot.version>
 		<hibernate.version>5.4.1.Final</hibernate.version>
 		<mssql-jdbc.version>7.2.2.jre8</mssql-jdbc.version>
 		<commons-dbcp2.version>2.2.0</commons-dbcp2.version>
